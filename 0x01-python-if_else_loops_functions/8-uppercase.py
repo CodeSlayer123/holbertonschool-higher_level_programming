@@ -8,6 +8,6 @@ def uppercase(str):
             s[i] = ord(s[i])
             s[i] -= 32
             s[i] = chr(s[i])
-        print(s[i], end="")
+        print("{}".format(s[i]), end="")
 
-    print("")
+    print("{}".format(""))
