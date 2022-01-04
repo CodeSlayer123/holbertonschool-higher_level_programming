@@ -10,4 +10,4 @@ def uppercase(str):
             s[i] = chr(s[i])
         print("{}".format(s[i]), end="")
 
-    print("{}".format(" "))
+    print("{}".format(""))
