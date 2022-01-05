@@ -8,8 +8,10 @@ def main():
         print("{}".format(size), "argument:")
     else:
         print("{}".format(size), "arguments:")
-        for i in range(1, len(argv)):
-            print("{}:".format(i), argv[i])
+
+    for i in range(1, len(argv)):
+        print("{}:".format(i), argv[i])
+
 
 if __name__ == "__main__":
     main()
