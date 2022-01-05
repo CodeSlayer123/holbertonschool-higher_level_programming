@@ -3,7 +3,7 @@ def main():
     from sys import argv
     size = len(argv) - 1
     if size == 0:
-        print("{}".format(size), "arguments")
+        print("{}".format(size), "arguments.")
     elif size == 1:
         print("{}".format(size), "argument:")
     else:
