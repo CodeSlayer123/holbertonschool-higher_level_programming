@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+def safe_print_division(a, b):
+    try:
+        product = a / b
+        print("Inside result: {}".format(product))
+        return(product)
+    except:
+        return(None)
