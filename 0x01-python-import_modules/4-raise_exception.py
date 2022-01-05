@@ -1,3 +1,7 @@
 #!/usr/bin/python3
-def raise_exception():
-    print("Exception raised")
+def main():
+    def raise_exception():
+        print("Exception raised")
+
+if __name__ == "__main__":
+    main()

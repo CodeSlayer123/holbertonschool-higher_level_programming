@@ -1,6 +1,10 @@
 #!/usr/bin/python3
-import add_0
-a = 1
-b = 2
-sum = add_0.add(a, b)
-print(a, "{}".format("+"), b, "=", sum)
+def main():
+    import add_0
+    a = 1
+    b = 2
+    sum = add_0.add(a, b)
+    print(a, "{}".format("+"), b, "=", sum)
+
+if __name__ == "__main__":
+    main()
