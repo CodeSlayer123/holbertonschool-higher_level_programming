@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+def add_tuple(tuple_a=(), tuple_b=()):
+    aZero = tuple_a[0]
+    aOne = tuple_a[1]
+    bZero = tuple_b[0]
+    bOne = tuple_b[1]
+
+    if len(tuple_a) < 2:
+        aOne = 0
+        if len(tuple_a) == 0:
+            aZero = 0
+    if len(tuple_b) < 2:
+        bOne = 0
+        if len(tuple_b) == 0:
+            bZero = 0
+
+    sumA = aZero + bZero
+    sumB = aOne + bOne
+    tuple_c = (sumA, sumB)
+    return(tuple_c)
