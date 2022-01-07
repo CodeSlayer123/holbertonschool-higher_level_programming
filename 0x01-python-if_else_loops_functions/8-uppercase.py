@@ -2,15 +2,12 @@
 
 
 def uppercase(str):
-    if str[0] == "z":
-        print("{}".format("Z"))
-    else:
-        s = list(str)
-        for i in range(len(str)):
-            if ord(str[i]) >= 97 and ord(str[1]) <= 122:
-                s[i] = ord(s[i])
-                s[i] -= 32
-                s[i] = chr(s[i])
-                print("{}".format(s[i]), end="")
 
-        print("{}".format(""))
+    for i in str:
+        if ord(i) >= 97 and ord(i) <= 122:
+            i = ord(i)
+            i -= 32
+            i = chr(i)
+        print("{}".format(i), end="")
+
+    print("{}".format(""))
