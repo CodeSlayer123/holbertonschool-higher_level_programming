@@ -9,7 +9,6 @@ def roman_to_int(roman_string):
 
     for i in roman_string:
         if count == 0 and i == 'I':
-            print("test")
             sum -= romans[i]
         else:
             sum += romans[i]
