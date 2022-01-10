@@ -2,6 +2,8 @@
 def roman_to_int(roman_string):
     if roman_string is None:
         return(None)
+    if not isinstance(roman_string, str):
+        return(None)
 
     sum = 0
     count = 0
