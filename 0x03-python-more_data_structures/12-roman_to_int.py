@@ -16,6 +16,8 @@ def roman_to_int(roman_string):
             sum -= romans[i]
         elif roman_string == 'CM':
             sum = romans[i] - sum
+        elif roman_string == 'XC' or roman_string == 'XL':
+            sum = romans[i] - sum
         else:
             sum += romans[i]
         count += 1
