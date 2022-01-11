@@ -1,5 +1,15 @@
 #!/usr/bin/python3
+"""[Create a square]
+
+    Raises:
+        TypeError: [size must be an integer]
+        ValueError: [size must be >= 0]
+"""
+
+
 class Square:
+    """[square]
+    """
     def __init__(self, size=0):
         """[initializes square size]
 
@@ -7,7 +17,7 @@ class Square:
             size (int): [size of square]. Defaults to 0.
 
         Raises:
-            TypeError: [size must be an intege]
+            TypeError: [size must be an integer]
             ValueError: [size must be >= 0]
         """
         if type(size) is not int:
