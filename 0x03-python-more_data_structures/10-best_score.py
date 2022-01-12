@@ -2,7 +2,8 @@
 def best_score(a_dictionary):
     if a_dictionary is None:
         return(None)
-    sort = dict(sorted(a_dictionary.items(), key=lambda item: item[1]))
-    best = len(sort) - 1
-    keys_list = list(sort)
-    return(keys_list[best])
+    elif a_dictionary:
+        sort = dict(sorted(a_dictionary.items(), key=lambda item: item[1]))
+        best = len(sort) - 1
+        keys_list = list(sort)
+        return(keys_list[best])
