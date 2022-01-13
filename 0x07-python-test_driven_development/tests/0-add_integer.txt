@@ -1,7 +1,47 @@
-from 0-add_integer import add_integer:
+Importing function from module:
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Now use it:
 
+Adding pos ints:
     >>> add_integer(5,5)
     10
+
+Adding neg int:
+    >>> add_integer(-5, -5)
+    -10
+
+Adding strings:
+    >>> add_integer("Hello", "World")
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Adding string to int:
+    >>> add_integer(5, "World")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Adding None:
+    >>> add_integer(None,5)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Adding Nones:
+    >>> add_integer(None, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Adding empty:
+    >>> add_integer("")
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Adding empties:
+    >>> add_integer("", "")
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
