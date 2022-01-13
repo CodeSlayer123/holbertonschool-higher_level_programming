@@ -1,0 +1,7 @@
+from 0-add_integer import add_integer:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Now use it:
+
+    >>> add_integer(5,5)
+    10
