@@ -1,0 +1,32 @@
+Importing function from module:
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+Regular name:
+    >>> say_my_name("John", "Doe")
+    My name is John Doe
+
+No last name:
+    >>> say_my_name("John", "")
+    My name is John 
+
+No first name:
+    >>> say_my_name("", "Doe")
+    My name is  Doe
+
+No name:
+    >>> say_my_name("", "")
+    My name is  
+
+
+None for a name:
+    >>> say_my_name(None, "Willson")
+    Traceback (most recent call last):
+	...
+    TypeError: first_name must be a string
+
+Clone Trooper:
+    >>> say_my_name("CT", 7567)
+    Traceback (most recent call last):
+	...
+    TypeError: last_name must be a string
