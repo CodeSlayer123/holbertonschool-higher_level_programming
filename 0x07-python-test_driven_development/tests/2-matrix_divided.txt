@@ -1,0 +1,45 @@
+Importing function from module:
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+
+Dividing pos ints:
+    >>> matrix_divided([[2, 4, 6], [8, 10, 12]], 2)
+    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+Dividing by neg int:
+    >>> matrix_divided([[2, 4, 6], [8, 10, 12]], -2)
+    [[-1.0, -2.0, -3.0], [-4.0, -5.0, -6.0]]
+
+Dividing neg ints:
+    >>> matrix_divided([[-2, 4, -6], [-8, -10, -12]], 2)
+    [[-1.0, 2.0, -3.0], [-4.0, -5.0, -6.0]]
+
+Dividng 0:
+    >>> matrix_divided([[0, 0, 0], [0, 10, 0]], 2)
+    [[0.0, 0.0, 0.0], [0.0, 5.0, 0.0]]
+
+Dividng matrices of different sizes:
+    >>> matrix_divided([[2, 4, 6], [8, 10]], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+Dividng empty matrix:
+    >>> matrix_divided([[], []], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Dividng by None :
+    >>> matrix_divided([[2, 4, 6], [8, 10, 12]], None)
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+Not a matrix:
+    >>> matrix_divided([2, 4, 6], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
