@@ -13,6 +13,9 @@ def text_indentation(text):
         if txt[i] == '.' or txt[i] == '?' or txt[i] == ':':
             txt.insert(i+1, "\n")  # inserts 1st newline
             txt.insert(i+2, "\n")  # inserts 2nd newline
-            txt.pop(i+3)   # deletes space after 2nd newline
+            if i == len(text) - 1:
+                break
+            if txt[i+3] == ' ':
+                txt.pop(i+3)   # deletes space after 2nd newline
 
     print("".join(txt), end="")

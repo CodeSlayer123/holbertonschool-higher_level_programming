@@ -48,5 +48,3 @@ matrix of None:
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-
-

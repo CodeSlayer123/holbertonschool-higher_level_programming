@@ -1,0 +1,51 @@
+Importing function from module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Regular sentence:
+    >>> text_indentation("A long time ago in a galaxy far far away.")
+    A long time ago in a galaxy far far away.
+    <BLANKLINE>
+
+
+Regular paragraph:
+    >>> text_indentation("It is a period of civil wars in the galaxy. A brave alliance of underground freedom fighters has challenged the tyranny and oppression of the awesome GALACTIC EMPIRE.")
+    It is a period of civil wars in the galaxy.
+    <BLANKLINE>
+    A brave alliance of underground freedom fighters has challenged the tyranny and oppression of the awesome GALACTIC EMPIRE.
+
+Edgy sentence:
+    >>> text_indentation("A long. Time ago in a ga.laxy far :far:away.")
+    A long.
+    <BLANKLINE>
+    Time ago in a ga.
+    <BLANKLINE>
+    laxy far :
+    <BLANKLINE>
+    far:
+    <BLANKLINE>
+    away.
+
+None Sentence:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Empty Sentence:
+    >>> text_indentation("")
+    
+
+Number Sentence:
+    >>> text_indentation(42)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Friendly Sentence:
+    >>> text_indentation("hi")
+    hi
+
+Peiod Sentence:
+    >>> text_indentation(".")
+    .
+    <BLANKLINE>
