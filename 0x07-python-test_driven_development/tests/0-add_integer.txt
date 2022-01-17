@@ -66,3 +66,8 @@ Adding no arguments:
     ...
     TypeError: add_integer() missing 1 required positional argument: 'a'
 
+Infinity and beyond:
+    >>> add_integer(float('inf'), 42)
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
