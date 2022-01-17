@@ -60,7 +60,9 @@ Adding one ints:
     >>> add_integer(5)
     103
 
-Adding one ints:
-    >>> add_integer(int(5.6), 5)
-    10
+Adding no arguments:
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
 
