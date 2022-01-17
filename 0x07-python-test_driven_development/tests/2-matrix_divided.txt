@@ -54,8 +54,8 @@ matrix divided by 0:
     ...
     ZeroDivisionError: division by zero
 
-matrix divided by inf:
-    >>> matrix_divided([[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], float('inf'))
+matrix divided by float inf:
+    >>> matrix_divided([[1,2,3], [4,5,6]], float('inf'))
     [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
 
 matrix of one argument:
