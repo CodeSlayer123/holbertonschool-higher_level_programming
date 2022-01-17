@@ -46,9 +46,9 @@ Adding empties:
     ...
     TypeError: a must be an integer
 
-Adding Overflow:
-    >>> add_integer(21474836402147483640.21474836402147483640, 1014748364010147483640.1014748364010147483640)
-    1036223200412295028736
+Adding Float Overflows:
+    >>> add_integer(98.99999999999999999, .999999999999999999)
+    100
 
 Adding NaN:
     >>> add_integer(float("NaN"), 42)
