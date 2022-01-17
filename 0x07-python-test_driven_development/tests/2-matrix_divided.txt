@@ -48,3 +48,14 @@ matrix of None:
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
+matrix divided by 0:
+    >>> matrix_divided([[2, 4, 6], [8, 10, 12]], 0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+matrix divided by 0:
+    >>> matrix_divided([[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], float(inf))
+    Traceback (most recent call last):
+    ...
+    NameError: name 'inf' is not defined
