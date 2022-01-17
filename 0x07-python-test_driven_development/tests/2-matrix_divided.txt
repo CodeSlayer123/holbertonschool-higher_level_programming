@@ -59,3 +59,15 @@ matrix divided by 0:
     Traceback (most recent call last):
     ...
     NameError: name 'inf' is not defined
+
+matrix of one argument:
+    >>> matrix_divided(20)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+matrix of no arguments:
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
