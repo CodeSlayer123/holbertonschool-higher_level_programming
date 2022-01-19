@@ -17,5 +17,5 @@ def text_indentation(text):
                 break
             if txt[i+3] == ' ':
                 txt.pop(i+3)   # deletes space after 2nd newline
-
+    str(txt)
     print("".join(txt), end="")
