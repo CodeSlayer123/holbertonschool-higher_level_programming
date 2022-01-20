@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Checks if object is a subclass of specified class"""
 
+
 def inherits_from(obj, a_class):
     """Returns True if object is subclass of specified class, else Flase"""
 

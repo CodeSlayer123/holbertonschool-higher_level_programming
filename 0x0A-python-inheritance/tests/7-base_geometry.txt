@@ -1,0 +1,85 @@
+Importing function from module:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+    >>> bg = BaseGeometry()
+
+Area:
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+Validate reg int:
+    >>> bg.integer_validator("pizzas", 42)
+
+
+Validate empty int:
+    >>> bg.integer_validator("pizzas", "")
+    Traceback (most recent call last):
+    ...
+    TypeError: pizzas must be an integer
+
+
+Validate nothing:
+    >>> bg.integer_validator("pizzas")
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
+Absolutely nothing:
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+Validate neg int:
+    >>> bg.integer_validator("pizzas", -42)
+    Traceback (most recent call last):
+    ...
+    ValueError: pizzas must be greater than 0
+
+Validate zero:
+    >>> bg.integer_validator("pizzas", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: pizzas must be greater than 0
+
+Validate float:
+    >>> bg.integer_validator("pizzas", 12.45)
+    Traceback (most recent call last):
+    ...
+    TypeError: pizzas must be an integer
+
+Validate big float:
+    >>> bg.integer_validator("pizzas", 1234566789012345.123456789012345)
+    Traceback (most recent call last):
+    ...
+    TypeError: pizzas must be an integer
+
+
+Validate inf:
+    >>> bg.integer_validator("pizzas", float('inf'))
+    Traceback (most recent call last):
+    ...
+    TypeError: pizzas must be an integer
+
+Validate NaN:
+    >>> bg.integer_validator("pizzas", float('NaN'))
+    Traceback (most recent call last):
+    ...
+    TypeError: pizzas must be an integer
+
+Validate string:
+    >>> bg.integer_validator("eggnog", "is amazing")
+    Traceback (most recent call last):
+    ...
+    TypeError: eggnog must be an integer
+
+
+Validate list:
+    >>> bg.integer_validator("eggnog", [0,1,2,3,4,5])
+    Traceback (most recent call last):
+    ...
+    TypeError: eggnog must be an integer

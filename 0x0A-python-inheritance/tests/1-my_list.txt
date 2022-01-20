@@ -1,0 +1,52 @@
+Importing function from module:
+    >>> MyList = __import__('1-my_list').MyList
+
+
+Max at start:
+    >>> my_list = MyList()
+    >>> my_list.append(3)
+    >>> my_list.append(2)
+    >>> my_list.append(1)
+    >>> my_list.print_sorted()
+    [1, 2, 3]
+
+Max at end:
+    >>> my_list = MyList()
+    >>> my_list.extend([1,2,3])
+    >>> my_list.print_sorted()
+    [1, 2, 3]
+
+
+Max at middle:
+    >>> my_list = MyList()
+    >>> my_list.extend([1,3,2])
+    >>> my_list.print_sorted()
+    [1, 2, 3]
+
+
+One negative number:
+    >>> my_list = MyList()
+    >>> my_list.extend([1,-2, 3])
+    >>> my_list.print_sorted()
+    [-2, 1, 3]
+
+
+Only negative numbers:
+    >>> my_list = MyList()
+    >>> my_list.extend([-1,-2,-3])
+    >>> my_list.print_sorted()
+    [-3, -2, -1]
+
+
+List of one element:
+    >>> my_list = MyList()
+    >>> my_list.extend([1])
+    >>> my_list.print_sorted()
+    [1]
+
+
+List is empty:
+    >>> my_list = MyList()
+    >>> my_list.extend([])
+    >>> my_list.print_sorted()
+    []
