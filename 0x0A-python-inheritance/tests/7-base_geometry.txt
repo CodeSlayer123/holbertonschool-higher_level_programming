@@ -83,3 +83,9 @@ Validate list:
     Traceback (most recent call last):
     ...
     TypeError: eggnog must be an integer
+
+Validate None:
+    >>> bg.integer_validator("pizzas", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: pizzas must be an integer
