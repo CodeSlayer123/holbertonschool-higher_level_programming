@@ -7,11 +7,13 @@ def pascal_triangle(n):
     if n <= 0:
         return ([])
 
-    tri = [[]]
-    for i in range(1, n + 1):
-        m = 1
-        for j in range(1, i + 1):
-            tri.append(m)
-            m = int(m * (i - j) / j)
-
-    return(tri)
+    mother_matrix = []
+    toddler = [1]
+    for i in range(n):
+        mother_matrix.append(toddler)
+        mother_matrix = []
+        mother_matrix.append(toddler[0])
+        for i in range(len(toddler)-1):
+            mother_matrix.append(toddler[i] + toddler[i+1])
+        mother_matrix.append(toddler[-1])
+        list = mother_matrix
