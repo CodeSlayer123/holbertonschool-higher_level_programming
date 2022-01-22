@@ -17,3 +17,4 @@ def pascal_triangle(n):
             mother_matrix.append(toddler[i] + toddler[i+1])
         mother_matrix.append(toddler[-1])
         list = mother_matrix
+    return(mother_matrix)
