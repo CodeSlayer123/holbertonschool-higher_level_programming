@@ -50,3 +50,14 @@ List is empty:
     >>> my_list.extend([])
     >>> my_list.print_sorted()
     []
+
+List is empty:
+    >>> my_list = MyList()
+    >>> my_list.extend([1,2,3])
+    >>> print(my_list)
+    [1, 2, 3]
+    >>> my_list.print_sorted()
+    [1, 2, 3]
+    >>> print(my_list)
+    [1, 2, 3]
+
