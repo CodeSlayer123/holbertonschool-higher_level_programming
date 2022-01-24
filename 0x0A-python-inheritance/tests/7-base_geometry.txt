@@ -89,3 +89,21 @@ Validate None:
     Traceback (most recent call last):
     ...
     TypeError: pizzas must be an integer
+
+Validate Comma thing:
+    >>> bg.integer_validator(“pizzas”, (4,))
+    Traceback (most recent call last):
+    ...
+    SyntaxError: invalid character in identifier
+
+Validate a boolean ig:
+    >>> bg.integer_validator("pizzas", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: pizzas must be an integer
+
+Validate a dictionary list:
+    >>> bg.integer_validator(“pizzas”, {3, 4})
+    Traceback (most recent call last):
+    ...
+    SyntaxError: invalid character in identifier
