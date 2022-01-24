@@ -62,6 +62,6 @@ List is empty:
     [1, 2, 3]
 
 Doc String Test:
-    >>> doc = __import__("1-my_list").__doc__
+    >>> doc = __import__("1-my_list").MyList.__doc__
     >>> len(doc) > 1
     True
