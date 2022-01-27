@@ -34,12 +34,10 @@ class Rectangle(Base):
     # width
 
     @property
-
     def width(self):
         return(self.__width)
 
     @width.setter
-
     def width(self, value):
         if type(value) is not int:
             raise TypeError("{} must be an integer".format("width"))
@@ -50,12 +48,10 @@ class Rectangle(Base):
     # height
 
     @property
-
     def height(self):
         return(self.__height)
 
     @height.setter
-
     def height(self, value):
         if type(value) is not int:
             raise TypeError("{} must be an integer".format("height"))
@@ -66,12 +62,10 @@ class Rectangle(Base):
     # x
 
     @property
-
     def x(self):
         return(self.__x)
 
     @x.setter
-
     def x(self, value):
         if type(value) is not int:
             raise TypeError("{} must be an integer".format("x"))
@@ -82,12 +76,10 @@ class Rectangle(Base):
     # y
 
     @property
-
     def y(self):
         return(self.__y)
 
     @y.setter
-
     def y(self, value):
         if type(value) is not int:
             raise TypeError("{} must be an integer".format("y"))
@@ -105,21 +97,29 @@ class Rectangle(Base):
             print(' ' * self.__x + "#" * self.__width)
 
     def __str__(self):
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height))
+        return ("[Rectangle] ({}) {}/{} - {}/{}".
+                format(self.id, self.__x, self.__y,
+                       self.__width, self.__height))
 
     def update(self, *args, **kwargs):
         if args is not None and len(args) > 0:
-            if len(args) == 1:
+            if len(args) >= 1:
                 self.id = args[0]
-            if len(args) == 2:
+            if len(args) >= 2:
                 self.__width = args[1]
-            if len(args) == 3:
+            if len(args) >= 3:
                 self.__height = args[2]
-            if len(args) == 4:
+            if len(args) >= 4:
                 self.__x = args[3]
-            if len(args) == 5:
+            if len(args) >= 5:
                 self.__y = args[4]
         else:
             if kwargs is not None:
                 for key, value in kwargs.items():
                     setattr(self, key, value)
+
+    def to_dictionary(self):
+
+        ted = {'id': self.id, 'width': self.width,
+               'height': self.height, 'x': self.x, 'y': self.y}
+        return(ted)
