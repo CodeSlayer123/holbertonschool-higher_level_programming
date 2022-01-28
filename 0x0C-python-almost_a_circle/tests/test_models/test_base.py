@@ -98,6 +98,15 @@ class BaseTest(unittest.TestCase):
 
         self.assertTrue(len(Base.__doc__) >= 1)
 
+    def test_func_docstrings(self):
+        """Tests docstrings functions"""
+
+        self.assertTrue(len(Base.__init__.__doc__) >= 1)
+        self.assertTrue(len(Base.to_json_string.__doc__) >= 1)
+        self.assertTrue(len(Base.from_json_string.__doc__) >= 1)
+        self.assertTrue(len(Base.save_to_file.__doc__) >= 1)
+        self.assertTrue(len(Base.create.__doc__) >= 1)
+        self.assertTrue(len(Base.load_from_file.__doc__) >= 1)
 
 if __name__ == '__main__':
     unittest.main()

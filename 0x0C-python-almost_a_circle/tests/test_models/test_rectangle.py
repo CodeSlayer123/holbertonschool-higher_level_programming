@@ -251,6 +251,18 @@ class RectangleTest(unittest.TestCase):
 
         self.assertTrue(len(Rectangle.__doc__) >= 1)
 
+    def test_func_docstrings(self):
+        """Tests docstrings functions"""
+
+        self.assertTrue(len(Rectangle.__init__.__doc__) >= 1)
+        self.assertTrue(len(Rectangle.width.__doc__) >= 1)
+        self.assertTrue(len(Rectangle.height.__doc__) >= 1)
+        self.assertTrue(len(Rectangle.x.__doc__) >= 1)
+        self.assertTrue(len(Rectangle.y.__doc__) >= 1)
+        self.assertTrue(len(Rectangle.display.__doc__) >= 1)
+        self.assertTrue(len(Rectangle.__str__.__doc__) >= 1)
+        self.assertTrue(len(Rectangle.update.__doc__) >= 1)
+        self.assertTrue(len(Rectangle.to_dictionary.__doc__) >= 1)
 
 if __name__ == '__main__':
     unittest.main()
