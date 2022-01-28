@@ -7,6 +7,8 @@ class Rectangle(Base):
     """Class Rectangle that inherits from class Base"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Function 1"""
+
         if type(width) != int:
             raise TypeError("{} must be an integer".format("width"))
         if width <= 0:
@@ -35,10 +37,14 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """Function 2"""
+
         return(self.__width)
 
     @width.setter
     def width(self, value):
+        """Function 3"""
+
         if type(value) is not int:
             raise TypeError("{} must be an integer".format("width"))
         if value <= 0:
@@ -49,10 +55,14 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """Function 4"""
+
         return(self.__height)
 
     @height.setter
     def height(self, value):
+        """Function 5"""
+
         if type(value) is not int:
             raise TypeError("{} must be an integer".format("height"))
         if value <= 0:
@@ -63,10 +73,14 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """Function 6"""
+
         return(self.__x)
 
     @x.setter
     def x(self, value):
+        """Function 7"""
+
         if type(value) is not int:
             raise TypeError("{} must be an integer".format("x"))
         if value < 0:
@@ -77,10 +91,14 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """Function 8"""
+
         return(self.__y)
 
     @y.setter
     def y(self, value):
+        """Function 9"""
+
         if type(value) is not int:
             raise TypeError("{} must be an integer".format("y"))
         if value < 0:
@@ -88,20 +106,28 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """Function 10"""
+
         return(self.__width * self.__height)
 
     def display(self):
+        """Function 11"""
+
         for i in range(self.__y):
             print()
         for i in range(self.height):
             print(' ' * self.__x + "#" * self.__width)
 
     def __str__(self):
+        """Function 12"""
+
         return ("[Rectangle] ({}) {}/{} - {}/{}".
                 format(self.id, self.__x, self.__y,
                        self.__width, self.__height))
 
     def update(self, *args, **kwargs):
+        """Function 13"""
+
         flag = 1
         if args is not None:
             flag = 0
@@ -122,6 +148,7 @@ class Rectangle(Base):
                     setattr(self, key, value)
 
     def to_dictionary(self):
+        """Function 14"""
 
         ted = {'id': self.id, 'width': self.width,
                'height': self.height, 'x': self.x, 'y': self.y}

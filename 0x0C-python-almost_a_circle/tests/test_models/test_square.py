@@ -11,6 +11,8 @@ class SquareTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        """setting up class"""
+
         Base.clear()
 
         cls.s1 = Square(10)
@@ -20,12 +22,15 @@ class SquareTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        """Tearing down class"""
+
         del cls.s1
         del cls.s2
         del cls.s3
         del cls.s4
 
     def test_task10(self):
+        """test 1"""
 
         self.assertEqual(self.s1.id, 1)
         self.assertEqual(self.s2.id, 2)
@@ -42,6 +47,8 @@ class SquareTest(unittest.TestCase):
             r6 = Square(1, 1, 1, 1, 1, 1)
 
     def test_task3(self):
+        """test 2"""
+
         with self.assertRaises(TypeError):
             # size
             s1 = Square("hello")
@@ -75,24 +82,33 @@ class SquareTest(unittest.TestCase):
             s2 = Square(10, 10, -10)
 
     def test_task4(self):
+        """test 3"""
+
         s7 = Square(3)
         self.assertEqual(s7.area(), 9)
         s7.size = 10
         self.assertEqual(s7.area(), 100)
 
     def test_task5(self):
+        """test 4"""
+
         s8 = Square(1)
         self.assertEqual(s8.display(), None)
 
     def test_task6(self):
+        """test 5"""
+
         s9 = Square(4, 2, 1, 12)
         self.assertEqual(str(s9), "[Square] (12) 2/1 - 4")
 
     def test_task7(self):
+        """test 6"""
+
         s10 = Square(2, 2, 2)
         self.assertEqual(s10.display(), None)
 
     def test_task8(self):
+        """test 7"""
 
         s11 = Square(10, 10, 10)
 
@@ -121,6 +137,8 @@ class SquareTest(unittest.TestCase):
         self.assertEqual(s11.x, 4)
 
     def test_task9(self):
+        """test 8"""
+
         s12 = Square(10, 10, 10)
 
         s12.update(size=1)
@@ -143,6 +161,8 @@ class SquareTest(unittest.TestCase):
         self.assertEqual(s12.id, 3)
 
     def test_task13(self):
+        """test 9"""
+
         s13 = Square(10, 1, 9, 1)
         s1_dict = s13.to_dictionary()
         self.assertEqual(type(s1_dict), dict)
@@ -152,6 +172,8 @@ class SquareTest(unittest.TestCase):
         self.assertEqual(Square.to_json_string(None), "[]")
 
     def test_task16(self):
+        """test 10"""
+
         s14 = Square(10, 2, 8)
         s15 = Square(2)
         Square.save_to_file([s14, s15])
@@ -161,12 +183,16 @@ class SquareTest(unittest.TestCase):
 {"id": 4, "size": 2, "x": 0, "y": 0}]')
 
     def test_task18(self):
+        """test 11"""
+
         my_s_dict = {'size': 5, 'x': 8}
         rect = Square.create(**my_s_dict)
         self.assertEqual(rect.x, 8)
         self.assertEqual(rect.size, 5)
 
     def test_task18(self):
+        """test 12"""
+
         s16 = Square(10, 2, 8)
         s17 = Square(2)
         list_Squares_input = [s16, s17]
@@ -178,22 +204,28 @@ class SquareTest(unittest.TestCase):
                          '[Square] (5) 2/8 - 10')
 
     def test_pep8_sq(self):
+        """test 13"""
+
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
     def test_pep8_test_sq(self):
+        """test 14"""
+
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['tests/test_models/test_base.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
     def test_module_docstring(self):
+        """test 15"""
 
         self.assertTrue(len(Square.__doc__) >= 1)
 
     def test_class_docstring(self):
+        """test 16"""
 
         self.assertTrue(len(Square.__doc__) >= 1)
 

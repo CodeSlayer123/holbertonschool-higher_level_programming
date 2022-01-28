@@ -35,6 +35,7 @@ class BaseTest(unittest.TestCase):
         del cls.b8
 
     def test_task1(self):
+        """Test 1"""
 
         self.assertEqual(self.b1.id, 1)
         self.assertEqual(self.b2.id, 2)
@@ -49,6 +50,8 @@ class BaseTest(unittest.TestCase):
             b9 = Base(1, 1, 1)
 
     def test_task15(self):
+        """Test 2"""
+
         my_dict = {'width': 10, 'height': 7, 'x': 2, 'y': 8, 'id': 1}
         json_dict = Base.to_json_string([my_dict])
 
@@ -62,28 +65,36 @@ class BaseTest(unittest.TestCase):
         self.assertEqual(Base.to_json_string(None), "[]")
 
     def test_task17(self):
+        """Test 3"""
+
         json_str = '[{"width": 10, "height": 7, "x": 2, "y": 8, "id": 1}]'
         output = Base.from_json_string(json_str)
         self.assertEqual(output, [{"width": 10, "height": 7,
                                    "x": 2, "y": 8, "id": 1}])
 
     def test_pep8_base(self):
+        """Test 4"""
+
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
     def test_pep8_test_base(self):
+        """Test 5"""
+
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['tests/test_models/test_base.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
     def test_module_docstring(self):
+        """Test 6"""
 
         self.assertTrue(len(Base.__doc__) >= 1)
 
     def test_class_docstring(self):
+        """Test 7"""
 
         self.assertTrue(len(Base.__doc__) >= 1)
 

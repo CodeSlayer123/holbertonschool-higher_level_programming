@@ -10,6 +10,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """function 1"""
 
         if id is not None:
             self.id = id
@@ -19,6 +20,8 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """function 2"""
+
         if list_dictionaries is None:
             return("[]")
         if len(list_dictionaries) == 0:
@@ -27,6 +30,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """function 3"""
 
         my_list = []
         if list_objs is not None:
@@ -38,16 +42,22 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """function 4"""
+
         return(json.loads(json_string))
 
     @classmethod
     def create(cls, **dictionary):
+        """function 5"""
+
         bob = cls(1, 1)
         bob.update(**dictionary)
         return(bob)
 
     @classmethod
     def load_from_file(cls):
+        """function 6"""
+
         if not os.path.exists(cls.__name__ + ".json"):
             return([])
         with open(cls.__name__ + ".json", "r") as file:
@@ -58,4 +68,5 @@ class Base:
 
     @classmethod
     def clear(cls):
+        """function 7"""
         Base.__nb_objects = 0

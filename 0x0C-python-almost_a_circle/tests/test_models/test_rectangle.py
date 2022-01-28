@@ -12,6 +12,8 @@ class RectangleTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        """Set up class"""
+
         Base.clear()
 
         cls.r1 = Rectangle(10, 2)
@@ -50,6 +52,7 @@ class RectangleTest(unittest.TestCase):
         del cls.r15
 
     def test_task2(self):
+        """"test 1"""
 
         self.assertEqual(self.r1.id, 1)
         self.assertEqual(self.r2.id, 2)
@@ -57,6 +60,8 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(self.r4.id, -12)
 
     def test_task3(self):
+        """"test 2"""
+
         with self.assertRaises(TypeError):
             # width and height
             r1 = Rectangle(10, "hello")
@@ -100,20 +105,29 @@ class RectangleTest(unittest.TestCase):
             r2 = Rectangle(10, 10, -10, 10)
 
     def test_task4(self):
+        """"test 3"""
+
         self.assertEqual(self.r5.area(), 6)
         self.r5.width = 10
         self.assertEqual(self.r5.area(), 20)
 
     def test_task5(self):
+        """"test 4"""
+
         self.assertEqual(self.r6.display(), None)
 
     def test_task6(self):
+        """"test 5"""
+
         self.assertEqual(str(self.r7), "[Rectangle] (12) 2/1 - 4/6")
 
     def test_task7(self):
+        """"test 6"""
+
         self.assertEqual(self.r8.display(), None)
 
     def test_task8(self):
+        """"test 7"""
 
         self.r9.update(89)
         self.assertEqual(self.r9.id, 89)
@@ -148,6 +162,7 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(self.r9.x, 4)
 
     def test_task9(self):
+        """"test 8"""
 
         self.r10.update(height=1)
         self.assertEqual(self.r10.height, 1)
@@ -172,6 +187,8 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(self.r10.id, 3)
 
     def test_task13(self):
+        """"test 9"""
+
         r1_dict = self.r11.to_dictionary()
         self.assertEqual(type(r1_dict), dict)
         self.assertEqual(r1_dict, {'id': 1, 'width': 10, 'height': 2,
@@ -180,6 +197,8 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(Rectangle.to_json_string(None), "[]")
 
     def test_task16(self):
+        """"test 10"""
+
         Rectangle.save_to_file([self.r12, self.r13])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), '[{"id": 8, \
@@ -187,6 +206,8 @@ class RectangleTest(unittest.TestCase):
 {"id": 9, "width": 2, "height": 4, "x": 0, "y": 0}]')
 
     def test_task18(self):
+        """"test 11"""
+
         my_dict = {'height': 5, 'width': 3, 'x': 8}
         rect = Rectangle.create(**my_dict)
         self.assertEqual(rect.x, 8)
@@ -194,6 +215,8 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(rect.height, 5)
 
     def test_task18(self):
+        """"test 12"""
+
         list_rectangles_input = [self.r14, self.r15]
 
         Rectangle.save_to_file(list_rectangles_input)
@@ -203,22 +226,28 @@ class RectangleTest(unittest.TestCase):
                          '[Rectangle] (10) 2/8 - 10/7')
 
     def test_pep8_rect(self):
+        """"test 13"""
+
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
     def test_pep8_test_rect(self):
+        """"test 14"""
+
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['tests/test_models/test_base.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
     def test_module_docstring(self):
+        """"test 15"""
 
         self.assertTrue(len(Rectangle.__doc__) >= 1)
 
     def test_class_docstring(self):
+        """"test 16"""
 
         self.assertTrue(len(Rectangle.__doc__) >= 1)
 
