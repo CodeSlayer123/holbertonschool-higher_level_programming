@@ -207,7 +207,7 @@ class SquareTest(unittest.TestCase):
         """test 13"""
 
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base.py'])
+        result = pep8style.check_files(['models/square.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
@@ -215,7 +215,7 @@ class SquareTest(unittest.TestCase):
         """test 14"""
 
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test_base.py'])
+        result = pep8style.check_files(['tests/test_models/test_square.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
