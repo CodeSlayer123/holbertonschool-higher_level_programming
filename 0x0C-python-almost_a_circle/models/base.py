@@ -56,10 +56,8 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """function 5"""
-        if cls.name == "Square":
-            bob = cls(1)
-        elif cls.name == "Rectangle":
-            bob = cls(1, 1)
+
+        bob = cls(1, 1)
 
         bob.update(**dictionary)
         return(bob)
