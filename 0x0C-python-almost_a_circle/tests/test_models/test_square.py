@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from models.square import Square
 import unittest
+import pep8
 """Test for class Square"""
 
 
@@ -35,6 +36,7 @@ class SquareTest(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             r5 = Square()
+            r7 = Square(1, 1, 1, 1, 1, 1)
 
     def test_task3(self):
         with self.assertRaises(TypeError):
@@ -171,6 +173,27 @@ class SquareTest(unittest.TestCase):
         list_Squares_output = Square.load_from_file()
         self.assertEqual(str(list_Squares_output[0]),
                          '[Square] (5) 2/8 - 10')
+
+    def test_pep8_sq(self):
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_pep8_test_sq(self):
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['tests/test_models/test_base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_module_docstring(self):
+
+        self.assertTrue(len(Square.__doc__) >= 1)
+
+    def test_class_docstring(self):
+
+        self.assertTrue(len(Square.__doc__) >= 1)
+
 
 if __name__ == '__main__':
     unittest.main()

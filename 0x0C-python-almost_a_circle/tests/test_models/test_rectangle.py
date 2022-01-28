@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from models.rectangle import Rectangle
 import unittest
+import pep8
 """Test for class rectangle"""
 
 
@@ -59,6 +60,8 @@ class RectangleTest(unittest.TestCase):
             r6 = Rectangle(10, 10, float('Nan'), 20)
             r5 = Rectangle(10, 10, 10, float('inf'))
             r6 = Rectangle(10, 10, float('inf'), 20)
+
+            r7 = Rectangle(1, 1, 1, 1, 1, 1, 1)
 
         with self.assertRaises(ValueError):
             # width and height
@@ -185,6 +188,27 @@ class RectangleTest(unittest.TestCase):
         list_rectangles_output = Rectangle.load_from_file()
         self.assertEqual(str(list_rectangles_output[0]),
                          '[Rectangle] (5) 2/8 - 10/7')
+
+    def test_pep8_rect(self):
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_pep8_test_rect(self):
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['tests/test_models/test_base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_module_docstring(self):
+
+        self.assertTrue(len(Rectangle.__doc__) >= 1)
+
+    def test_class_docstring(self):
+
+        self.assertTrue(len(Rectangle.__doc__) >= 1)
+
 
 if __name__ == '__main__':
     unittest.main()
