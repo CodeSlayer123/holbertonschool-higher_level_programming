@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-from models.rectangle import Rectangle
-
 """Class Square that inherits from class Rectangle"""
+
+
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):

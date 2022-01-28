@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Base Class For Almost A Circle"""
+
+
 import json
 import os
 
