@@ -8,24 +8,42 @@ import pep8
 class BaseTest(unittest.TestCase):
     """Test for class base"""
 
-    def test_task1(self):
-        b1 = Base()
-        b2 = Base()
-        b3 = Base()
-        b4 = Base(5)
-        b5 = Base(-5)
-        b6 = Base(42)
-        b7 = Base()
-        b8 = Base(None)
+    @classmethod
+    def setUpClass(cls):
+        """Setting up class"""
+        Base.clear()
 
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 3)
-        self.assertEqual(b4.id, 5)
-        self.assertEqual(b5.id, -5)
-        self.assertEqual(b6.id, 42)
-        self.assertEqual(b7.id, 4)
-        self.assertEqual(b8.id, 5)
+        cls.b1 = Base()
+        cls.b2 = Base()
+        cls.b3 = Base()
+        cls.b4 = Base(5)
+        cls.b5 = Base(-5)
+        cls.b6 = Base(42)
+        cls.b7 = Base()
+        cls.b8 = Base(None)
+
+    @classmethod
+    def tearDownClass(cls):
+        """Tearing down class"""
+        del cls.b1
+        del cls.b2
+        del cls.b3
+        del cls.b4
+        del cls.b5
+        del cls.b6
+        del cls.b7
+        del cls.b8
+
+    def test_task1(self):
+
+        self.assertEqual(self.b1.id, 1)
+        self.assertEqual(self.b2.id, 2)
+        self.assertEqual(self.b3.id, 3)
+        self.assertEqual(self.b4.id, 5)
+        self.assertEqual(self.b5.id, -5)
+        self.assertEqual(self.b6.id, 42)
+        self.assertEqual(self.b7.id, 4)
+        self.assertEqual(self.b8.id, 5)
 
         with self.assertRaises(TypeError):
             b9 = Base(1, 1, 1)

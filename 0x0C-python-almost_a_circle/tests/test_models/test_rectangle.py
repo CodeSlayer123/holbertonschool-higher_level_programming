@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 from models.rectangle import Rectangle
+from models.base import Base
+
 import unittest
 import pep8
 """Test for class rectangle"""
@@ -10,11 +12,23 @@ class RectangleTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        """Setting up class"""
+        Base.clear()
+
         cls.r1 = Rectangle(10, 2)
         cls.r2 = Rectangle(2, 10)
         cls.r3 = Rectangle(10, 2, 0, 0, 12)
         cls.r4 = Rectangle(10, 2, 0, 0, -12)
+        cls.r5 = Rectangle(3, 2)
+        cls.r6 = Rectangle(1, 1)
+        cls.r7 = Rectangle(4, 6, 2, 1, 12)
+        cls.r8 = Rectangle(2, 3, 2, 2)
+        cls.r9 = Rectangle(10, 10, 10, 10)
+        cls.r10 = Rectangle(10, 10, 10, 10)
+        cls.r11 = Rectangle(10, 2, 1, 9, 1)
+        cls.r12 = Rectangle(10, 7, 2, 8)
+        cls.r13 = Rectangle(2, 4)
+        cls.r14 = Rectangle(10, 7, 2, 8)
+        cls.r15 = Rectangle(2, 4)
 
     @classmethod
     def tearDownClass(cls):
@@ -23,6 +37,17 @@ class RectangleTest(unittest.TestCase):
         del cls.r2
         del cls.r3
         del cls.r4
+        del cls.r5
+        del cls.r6
+        del cls.r7
+        del cls.r8
+        del cls.r9
+        del cls.r10
+        del cls.r11
+        del cls.r12
+        del cls.r13
+        del cls.r14
+        del cls.r15
 
     def test_task2(self):
 
@@ -75,87 +100,79 @@ class RectangleTest(unittest.TestCase):
             r2 = Rectangle(10, 10, -10, 10)
 
     def test_task4(self):
-        r1 = Rectangle(3, 2)
-        self.assertEqual(r1.area(), 6)
-        r1.width = 10
-        self.assertEqual(r1.area(), 20)
+        self.assertEqual(self.r5.area(), 6)
+        self.r5.width = 10
+        self.assertEqual(self.r5.area(), 20)
 
     def test_task5(self):
-        r1 = Rectangle(1, 1)
-        self.assertEqual(r1.display(), None)
+        self.assertEqual(self.r6.display(), None)
 
     def test_task6(self):
-        r1 = Rectangle(4, 6, 2, 1, 12)
-        self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
+        self.assertEqual(str(self.r7), "[Rectangle] (12) 2/1 - 4/6")
 
     def test_task7(self):
-        r1 = Rectangle(2, 3, 2, 2)
-        self.assertEqual(r1.display(), None)
+        self.assertEqual(self.r8.display(), None)
 
     def test_task8(self):
 
-        r1 = Rectangle(10, 10, 10, 10)
+        self.r9.update(89)
+        self.assertEqual(self.r9.id, 89)
 
-        r1.update(89)
-        self.assertEqual(r1.id, 89)
+        self.r9.update(89, 2)
+        self.assertEqual(self.r9.id, 89)
+        self.assertEqual(self.r9.width, 2)
 
-        r1.update(89, 2)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.width, 2)
+        self.r9.update(89, 2, 3)
+        self.assertEqual(self.r9.id, 89)
+        self.assertEqual(self.r9.width, 2)
+        self.assertEqual(self.r9.height, 3)
 
-        r1.update(89, 2, 3)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.width, 2)
-        self.assertEqual(r1.height, 3)
+        self.r9.update(89, 2, 3, 4)
+        self.assertEqual(self.r9.id, 89)
+        self.assertEqual(self.r9.width, 2)
+        self.assertEqual(self.r9.height, 3)
+        self.assertEqual(self.r9.x, 4)
 
-        r1.update(89, 2, 3, 4)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.width, 2)
-        self.assertEqual(r1.height, 3)
-        self.assertEqual(r1.x, 4)
+        self.r9.update(89, 2, 3, 4, 5)
+        self.assertEqual(self.r9.id, 89)
+        self.assertEqual(self.r9.width, 2)
+        self.assertEqual(self.r9.height, 3)
+        self.assertEqual(self.r9.x, 4)
+        self.assertEqual(self.r9.y, 5)
 
-        r1.update(89, 2, 3, 4, 5)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.width, 2)
-        self.assertEqual(r1.height, 3)
-        self.assertEqual(r1.x, 4)
-        self.assertEqual(r1.y, 5)
-
-        r1 = Rectangle(10, 10)
-        r1.update(89, 2, 3, 4)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.width, 2)
-        self.assertEqual(r1.height, 3)
-        self.assertEqual(r1.x, 4)
+        self.r9 = Rectangle(10, 10)
+        self.r9.update(89, 2, 3, 4)
+        self.assertEqual(self.r9.id, 89)
+        self.assertEqual(self.r9.width, 2)
+        self.assertEqual(self.r9.height, 3)
+        self.assertEqual(self.r9.x, 4)
 
     def test_task9(self):
-        r1 = Rectangle(10, 10, 10, 10)
 
-        r1.update(height=1)
-        self.assertEqual(r1.height, 1)
+        self.r10.update(height=1)
+        self.assertEqual(self.r10.height, 1)
 
-        r1.update(width=1, x=2)
-        self.assertEqual(r1.height, 1)
-        self.assertEqual(r1.width, 1)
-        self.assertEqual(r1.x, 2)
+        self.r10.update(width=1, x=2)
+        self.assertEqual(self.r10.height, 1)
+        self.assertEqual(self.r10.width, 1)
+        self.assertEqual(self.r10.x, 2)
 
-        r1.update(y=1, width=2, id=89, x=3)
-        self.assertEqual(r1.height, 1)
-        self.assertEqual(r1.width, 2)
-        self.assertEqual(r1.x, 3)
-        self.assertEqual(r1.y, 1)
-        self.assertEqual(r1.id, 89)
+        self.r10.update(y=1, width=2, id=89, x=3)
+        self.assertEqual(self.r10.height, 1)
+        self.assertEqual(self.r10.width, 2)
+        self.assertEqual(self.r10.x, 3)
+        self.assertEqual(self.r10.y, 1)
+        self.assertEqual(self.r10.id, 89)
 
-        r1.update(3, 4, y=5, width=2, x=0)
-        self.assertEqual(r1.height, 1)
-        self.assertEqual(r1.width, 4)
-        self.assertEqual(r1.x, 3)
-        self.assertEqual(r1.y, 1)
-        self.assertEqual(r1.id, 3)
+        self.r10.update(3, 4, y=5, width=2, x=0)
+        self.assertEqual(self.r10.height, 1)
+        self.assertEqual(self.r10.width, 4)
+        self.assertEqual(self.r10.x, 3)
+        self.assertEqual(self.r10.y, 1)
+        self.assertEqual(self.r10.id, 3)
 
     def test_task13(self):
-        r1 = Rectangle(10, 2, 1, 9, 1)
-        r1_dict = r1.to_dictionary()
+        r1_dict = self.r11.to_dictionary()
         self.assertEqual(type(r1_dict), dict)
         self.assertEqual(r1_dict, {'id': 1, 'width': 10, 'height': 2,
                                    'x': 1, 'y': 9})
@@ -163,13 +180,11 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(Rectangle.to_json_string(None), "[]")
 
     def test_task16(self):
-        b1 = Rectangle(10, 7, 2, 8)
-        b2 = Rectangle(2, 4)
-        Rectangle.save_to_file([b1, b2])
+        Rectangle.save_to_file([self.r12, self.r13])
         with open("Rectangle.json", "r") as file:
-            self.assertEqual(file.read(), '[{"id": 3, \
+            self.assertEqual(file.read(), '[{"id": 8, \
 "width": 10, "height": 7, "x": 2, "y": 8}, \
-{"id": 4, "width": 2, "height": 4, "x": 0, "y": 0}]')
+{"id": 9, "width": 2, "height": 4, "x": 0, "y": 0}]')
 
     def test_task18(self):
         my_dict = {'height': 5, 'width': 3, 'x': 8}
@@ -179,15 +194,13 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(rect.height, 5)
 
     def test_task18(self):
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(2, 4)
-        list_rectangles_input = [r1, r2]
+        list_rectangles_input = [self.r14, self.r15]
 
         Rectangle.save_to_file(list_rectangles_input)
 
         list_rectangles_output = Rectangle.load_from_file()
         self.assertEqual(str(list_rectangles_output[0]),
-                         '[Rectangle] (5) 2/8 - 10/7')
+                         '[Rectangle] (10) 2/8 - 10/7')
 
     def test_pep8_rect(self):
         pep8style = pep8.StyleGuide(quiet=True)

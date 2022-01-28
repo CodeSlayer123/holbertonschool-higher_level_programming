@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from models.square import Square
+from models.base import Base
 import unittest
 import pep8
 """Test for class Square"""
@@ -10,163 +11,165 @@ class SquareTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.r1 = Square(10)
-        cls.r2 = Square(2, 10)
-        cls.r3 = Square(10, 2, 10, 20)
-        cls.r4 = Square(10, 2, 10, -10)
+        Base.clear()
+
+        cls.s1 = Square(10)
+        cls.s2 = Square(2, 10)
+        cls.s3 = Square(10, 2, 10, 20)
+        cls.s4 = Square(10, 2, 10, -10)
 
     @classmethod
     def tearDownClass(cls):
-        del cls.r1
-        del cls.r2
-        del cls.r3
-        del cls.r4
+        del cls.s1
+        del cls.s2
+        del cls.s3
+        del cls.s4
 
     def test_task10(self):
 
-        self.assertEqual(self.r1.id, 1)
-        self.assertEqual(self.r2.id, 2)
-        self.assertEqual(self.r3.id, 20)
-        self.assertEqual(self.r4.id, -10)
+        self.assertEqual(self.s1.id, 1)
+        self.assertEqual(self.s2.id, 2)
+        self.assertEqual(self.s3.id, 20)
+        self.assertEqual(self.s4.id, -10)
 
-        self.assertEqual(self.r1.size, 10)
-        self.assertEqual(self.r2.size, 2)
-        self.assertEqual(self.r3.x, 2)
-        self.assertEqual(self.r4.y, 10)
+        self.assertEqual(self.s1.size, 10)
+        self.assertEqual(self.s2.size, 2)
+        self.assertEqual(self.s3.x, 2)
+        self.assertEqual(self.s4.y, 10)
 
         with self.assertRaises(TypeError):
-            r5 = Square()
-            r7 = Square(1, 1, 1, 1, 1, 1)
+            s5 = Square()
+            r6 = Square(1, 1, 1, 1, 1, 1)
 
     def test_task3(self):
         with self.assertRaises(TypeError):
             # size
-            r1 = Square("hello")
-            r4 = Square(None)
-            r5 = Square(10.5)
-            r5 = Square(True)
-            r5 = Square(float('Nan'))
-            r5 = Square(float('inf'))
+            s1 = Square("hello")
+            s4 = Square(None)
+            s5 = Square(10.5)
+            s5 = Square(True)
+            s5 = Square(float('Nan'))
+            s5 = Square(float('inf'))
             # x and y
 
-            r1 = Square(10, 10, "hello")
-            r2 = Square(10, "hello", 10)
-            r4 = Square(10, 10, None)
-            r5 = Square(10, None, 20)
-            r5 = Square(10, 10, 10.5)
-            r6 = Square(10, 10.5, 20)
-            r5 = Square(10, 10, True)
-            r6 = Square(10, True, 20)
-            r5 = Square(10, 10, float('Nan'))
-            r6 = Square(10, float('Nan'), 20)
-            r5 = Square(10, 10, float('inf'))
-            r6 = Square(10, float('inf'), 20)
+            s1 = Square(10, 10, "hello")
+            s2 = Square(10, "hello", 10)
+            s4 = Square(10, 10, None)
+            s5 = Square(10, None, 20)
+            s5 = Square(10, 10, 10.5)
+            s6 = Square(10, 10.5, 20)
+            s5 = Square(10, 10, True)
+            s6 = Square(10, True, 20)
+            s5 = Square(10, 10, float('Nan'))
+            s6 = Square(10, float('Nan'), 20)
+            s5 = Square(10, 10, float('inf'))
+            s6 = Square(10, float('inf'), 20)
 
         with self.assertRaises(ValueError):
             # size
-            r1 = Square(-10)
-            r3 = Square(0)
+            s1 = Square(-10)
+            s3 = Square(0)
 
             # x and y
-            r1 = Square(10, -10, 10)
-            r2 = Square(10, 10, -10)
+            s1 = Square(10, -10, 10)
+            s2 = Square(10, 10, -10)
 
     def test_task4(self):
-        r1 = Square(3)
-        self.assertEqual(r1.area(), 9)
-        r1.size = 10
-        self.assertEqual(r1.area(), 100)
+        s7 = Square(3)
+        self.assertEqual(s7.area(), 9)
+        s7.size = 10
+        self.assertEqual(s7.area(), 100)
 
     def test_task5(self):
-        r1 = Square(1)
-        self.assertEqual(r1.display(), None)
+        s8 = Square(1)
+        self.assertEqual(s8.display(), None)
 
     def test_task6(self):
-        r1 = Square(4, 2, 1, 12)
-        self.assertEqual(str(r1), "[Square] (12) 2/1 - 4")
+        s9 = Square(4, 2, 1, 12)
+        self.assertEqual(str(s9), "[Square] (12) 2/1 - 4")
 
     def test_task7(self):
-        r1 = Square(2, 2, 2)
-        self.assertEqual(r1.display(), None)
+        s10 = Square(2, 2, 2)
+        self.assertEqual(s10.display(), None)
 
     def test_task8(self):
 
-        r1 = Square(10, 10, 10)
+        s11 = Square(10, 10, 10)
 
-        r1.update(89)
-        self.assertEqual(r1.id, 89)
+        s11.update(89)
+        self.assertEqual(s11.id, 89)
 
-        r1.update(89, 2)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.size, 2)
+        s11.update(89, 2)
+        self.assertEqual(s11.id, 89)
+        self.assertEqual(s11.size, 2)
 
-        r1.update(89, 2, 3)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.width, 2)
-        self.assertEqual(r1.x, 3)
+        s11.update(89, 2, 3)
+        self.assertEqual(s11.id, 89)
+        self.assertEqual(s11.width, 2)
+        self.assertEqual(s11.x, 3)
 
-        r1.update(89, 2, 3, 4)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.width, 2)
-        self.assertEqual(r1.x, 3)
-        self.assertEqual(r1.y, 4)
+        s11.update(89, 2, 3, 4)
+        self.assertEqual(s11.id, 89)
+        self.assertEqual(s11.width, 2)
+        self.assertEqual(s11.x, 3)
+        self.assertEqual(s11.y, 4)
 
-        r1 = Square(10)
-        r1.update(89, 2, 4)
-        self.assertEqual(r1.id, 89)
-        self.assertEqual(r1.size, 2)
-        self.assertEqual(r1.x, 4)
+        s11 = Square(10)
+        s11.update(89, 2, 4)
+        self.assertEqual(s11.id, 89)
+        self.assertEqual(s11.size, 2)
+        self.assertEqual(s11.x, 4)
 
     def test_task9(self):
-        r1 = Square(10, 10, 10)
+        s12 = Square(10, 10, 10)
 
-        r1.update(size=1)
-        self.assertEqual(r1.size, 1)
+        s12.update(size=1)
+        self.assertEqual(s12.size, 1)
 
-        r1.update(size=1, x=2)
-        self.assertEqual(r1.size, 1)
-        self.assertEqual(r1.x, 2)
+        s12.update(size=1, x=2)
+        self.assertEqual(s12.size, 1)
+        self.assertEqual(s12.x, 2)
 
-        r1.update(y=1, size=2, id=89, x=3)
-        self.assertEqual(r1.size, 2)
-        self.assertEqual(r1.x, 3)
-        self.assertEqual(r1.y, 1)
-        self.assertEqual(r1.id, 89)
+        s12.update(y=1, size=2, id=89, x=3)
+        self.assertEqual(s12.size, 2)
+        self.assertEqual(s12.x, 3)
+        self.assertEqual(s12.y, 1)
+        self.assertEqual(s12.id, 89)
 
-        r1.update(3, 4, y=5, size=2, x=0)
-        self.assertEqual(r1.size, 4)
-        self.assertEqual(r1.x, 3)
-        self.assertEqual(r1.y, 1)
-        self.assertEqual(r1.id, 3)
+        s12.update(3, 4, y=5, size=2, x=0)
+        self.assertEqual(s12.size, 4)
+        self.assertEqual(s12.x, 3)
+        self.assertEqual(s12.y, 1)
+        self.assertEqual(s12.id, 3)
 
     def test_task13(self):
-        r1 = Square(10, 1, 9, 1)
-        r1_dict = r1.to_dictionary()
-        self.assertEqual(type(r1_dict), dict)
-        self.assertEqual(r1_dict, {'id': 1, 'size': 10,
+        s13 = Square(10, 1, 9, 1)
+        s1_dict = s13.to_dictionary()
+        self.assertEqual(type(s1_dict), dict)
+        self.assertEqual(s1_dict, {'id': 1, 'size': 10,
                                    'x': 1, 'y': 9})
         self.assertEqual(Square.to_json_string([]), "[]")
         self.assertEqual(Square.to_json_string(None), "[]")
 
     def test_task16(self):
-        b1 = Square(10, 2, 8)
-        b2 = Square(2)
-        Square.save_to_file([b1, b2])
+        s14 = Square(10, 2, 8)
+        s15 = Square(2)
+        Square.save_to_file([s14, s15])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[{"id": 3, \
 "size": 10, "x": 2, "y": 8}, \
 {"id": 4, "size": 2, "x": 0, "y": 0}]')
 
     def test_task18(self):
-        my_dict = {'size': 5, 'x': 8}
-        rect = Square.create(**my_dict)
+        my_s_dict = {'size': 5, 'x': 8}
+        rect = Square.create(**my_s_dict)
         self.assertEqual(rect.x, 8)
         self.assertEqual(rect.size, 5)
 
     def test_task18(self):
-        r1 = Square(10, 2, 8)
-        r2 = Square(2)
-        list_Squares_input = [r1, r2]
+        s16 = Square(10, 2, 8)
+        s17 = Square(2)
+        list_Squares_input = [s16, s17]
 
         Square.save_to_file(list_Squares_input)
 
