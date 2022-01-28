@@ -46,6 +46,11 @@ class Base:
     def from_json_string(json_string):
         """function 4"""
 
+        if json_string is None:
+            return([])
+        if len(json_string) is 0:
+            return([])
+
         return(json.loads(json_string))
 
     @classmethod
