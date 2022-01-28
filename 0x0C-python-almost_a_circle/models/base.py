@@ -58,7 +58,7 @@ class Base:
         """function 5"""
         if cls.__name__ == "Square":
             bob = cls(1)
-        elif cls.__name == "Rectangle":
+        elif cls.__name__ == "Rectangle":
             bob = cls(1, 1)
 
         bob.update(**dictionary)
