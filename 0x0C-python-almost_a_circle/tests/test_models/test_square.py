@@ -207,6 +207,10 @@ class SquareTest(unittest.TestCase):
         Square.save_to_file(None)
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[]')
+        Square.save_to_file([Square(1)])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), '[{"id": 5, "size": 1, \
+"x": 0, "y": 0}]')
 
     def test_task18(self):
         """test 11"""
@@ -227,7 +231,7 @@ class SquareTest(unittest.TestCase):
 
         list_Squares_output = Square.load_from_file()
         self.assertEqual(str(list_Squares_output[0]),
-                         '[Square] (5) 2/8 - 10')
+                         '[Square] (6) 2/8 - 10')
 
     def test_pep8_sq(self):
         """test 13"""
