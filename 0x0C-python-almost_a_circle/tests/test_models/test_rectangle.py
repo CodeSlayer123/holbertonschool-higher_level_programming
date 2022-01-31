@@ -32,10 +32,6 @@ class RectangleTest(unittest.TestCase):
         cls.r14 = Rectangle(10, 7, 2, 8)
         cls.r15 = Rectangle(2, 4)
 
-        cls.r30 = (1, 1)
-        cls.r31 = (1, 1, 1)
-        cls.r32 = ()
-
     @classmethod
     def tearDownClass(cls):
         """Tearing down class"""
@@ -54,10 +50,6 @@ class RectangleTest(unittest.TestCase):
         del cls.r13
         del cls.r14
         del cls.r15
-
-        del cls.r30
-        del cls.r31
-        del cls.r32
 
     def test_task2(self):
         """"test 1"""
@@ -153,10 +145,6 @@ class RectangleTest(unittest.TestCase):
 
         self.assertEqual(self.r6.display(), None)
 
-        self.assertEqual(self.r30.display(), None)
-        self.assertEqual(self.r31.display(), None)
-        self.assertEqual(self.r32.display(), None)
-
     def test_task6(self):
         """"test 5"""
 
@@ -166,6 +154,12 @@ class RectangleTest(unittest.TestCase):
         """"test 6"""
 
         self.assertEqual(self.r8.display(), None)
+        r40 = Rectangle(2, 3, 2)
+        r41 = Rectangle(2, 3)
+        self.assertEqual(r40.display(), None)
+        self.assertEqual(r41.display(), None)
+        with self.assertRaises(TypeError):
+            r42 = Rectangle()
 
     def test_task8(self):
         """"test 7"""
