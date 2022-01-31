@@ -44,41 +44,61 @@ class SquareTest(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             s5 = Square()
+        with self.assertRaises(TypeError):
             r6 = Square(1, 1, 1, 1, 1, 1)
 
     def test_task3(self):
         """test 2"""
-
+        # size
         with self.assertRaises(TypeError):
-            # size
             s1 = Square("hello")
+        with self.assertRaises(TypeError):
             s4 = Square(None)
+        with self.assertRaises(TypeError):
             s5 = Square(10.5)
+        with self.assertRaises(TypeError):
             s5 = Square(True)
+        with self.assertRaises(TypeError):
             s5 = Square(float('Nan'))
+        with self.assertRaises(TypeError):
             s5 = Square(float('inf'))
             # x and y
-
+        with self.assertRaises(TypeError):
             s1 = Square(10, 10, "hello")
+        with self.assertRaises(TypeError):
             s2 = Square(10, "hello", 10)
+        with self.assertRaises(TypeError):
             s4 = Square(10, 10, None)
+        with self.assertRaises(TypeError):
             s5 = Square(10, None, 20)
+        with self.assertRaises(TypeError):
             s5 = Square(10, 10, 10.5)
+        with self.assertRaises(TypeError):
             s6 = Square(10, 10.5, 20)
+        with self.assertRaises(TypeError):
             s5 = Square(10, 10, True)
+        with self.assertRaises(TypeError):
             s6 = Square(10, True, 20)
+        with self.assertRaises(TypeError):
             s5 = Square(10, 10, float('Nan'))
+        with self.assertRaises(TypeError):
             s6 = Square(10, float('Nan'), 20)
+        with self.assertRaises(TypeError):
             s5 = Square(10, 10, float('inf'))
+        with self.assertRaises(TypeError):
             s6 = Square(10, float('inf'), 20)
 
+
+        # size
         with self.assertRaises(ValueError):
-            # size
             s1 = Square(-10)
+        with self.assertRaises(ValueError):
             s3 = Square(0)
 
             # x and y
+        with self.assertRaises(ValueError):
             s1 = Square(10, -10, 10)
+        with self.assertRaises(ValueError):
             s2 = Square(10, 10, -10)
 
     def test_task4(self):
