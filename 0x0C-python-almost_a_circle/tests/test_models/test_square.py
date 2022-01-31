@@ -88,7 +88,6 @@ class SquareTest(unittest.TestCase):
         with self.assertRaises(TypeError):
             s6 = Square(10, float('inf'), 20)
 
-
         # size
         with self.assertRaises(ValueError):
             s1 = Square(-10)
