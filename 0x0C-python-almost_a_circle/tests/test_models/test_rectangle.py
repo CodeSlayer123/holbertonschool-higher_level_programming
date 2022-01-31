@@ -199,6 +199,12 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(self.r9.height, 3)
         self.assertEqual(self.r9.x, 4)
 
+        self.r9.update()
+        self.assertEqual(self.r9.id, 89)
+        self.assertEqual(self.r9.width, 2)
+        self.assertEqual(self.r9.height, 3)
+        self.assertEqual(self.r9.x, 4)
+
     def test_task9(self):
         """"test 8"""
 
