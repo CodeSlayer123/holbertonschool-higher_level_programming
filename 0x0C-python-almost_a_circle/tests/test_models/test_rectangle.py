@@ -264,5 +264,21 @@ class RectangleTest(unittest.TestCase):
         self.assertTrue(len(Rectangle.update.__doc__) >= 1)
         self.assertTrue(len(Rectangle.to_dictionary.__doc__) >= 1)
 
+    def test_checker(self):
+        """Tests for the checker!"""
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+            Rectangle(1, "2")
+            Rectangle(1, 2, "3")
+            Rectangle(1, 2, 3, "4")
+
+        with self.assertRaises(ValueError):
+            Rectangle(-1, 2)
+            Rectangle(1, -2)
+            Rectangle(0, 2)
+            Rectangle(1, 0)
+            Rectangle(1, 2, -3)
+            Rectangle(1, 2, 3, -4)
+
 if __name__ == '__main__':
     unittest.main()
