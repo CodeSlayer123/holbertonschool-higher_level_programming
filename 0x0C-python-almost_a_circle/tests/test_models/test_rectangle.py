@@ -62,46 +62,75 @@ class RectangleTest(unittest.TestCase):
     def test_task3(self):
         """"test 2"""
 
+        # width and height
+
         with self.assertRaises(TypeError):
-            # width and height
             r1 = Rectangle(10, "hello")
+        with self.assertRaises(TypeError):
             r2 = Rectangle("hello", 10)
+        with self.assertRaises(TypeError):
             r4 = Rectangle(10, None)
+        with self.assertRaises(TypeError):
             r5 = Rectangle(None, 20)
+        with self.assertRaises(TypeError):
             r5 = Rectangle(10, 10.5)
+        with self.assertRaises(TypeError):
             r6 = Rectangle(10.5, 20)
+        with self.assertRaises(TypeError):
             r5 = Rectangle(10, True)
+        with self.assertRaises(TypeError):
             r6 = Rectangle(True, 20)
+        with self.assertRaises(TypeError):
             r5 = Rectangle(10, float('Nan'))
+        with self.assertRaises(TypeError):
             r6 = Rectangle(float('Nan'), 20)
+        with self.assertRaises(TypeError):
             r5 = Rectangle(10, float('inf'))
+        with self.assertRaises(TypeError):
             r6 = Rectangle(float('inf'), 20)
+
             # x and y
-
+        with self.assertRaises(TypeError):
             r1 = Rectangle(10, 10, 10, "hello")
+        with self.assertRaises(TypeError):
             r2 = Rectangle(10, 10, "hello", 10)
+        with self.assertRaises(TypeError):
             r4 = Rectangle(10, 10, 10, None)
+        with self.assertRaises(TypeError):
             r5 = Rectangle(10, 10, None, 20)
+        with self.assertRaises(TypeError):
             r5 = Rectangle(10, 10, 10, 10.5)
+        with self.assertRaises(TypeError):
             r6 = Rectangle(10, 10, 10.5, 20)
+        with self.assertRaises(TypeError):
             r5 = Rectangle(10, 10, 10, True)
+        with self.assertRaises(TypeError):
             r6 = Rectangle(10, 10, True, 20)
+        with self.assertRaises(TypeError):
             r5 = Rectangle(10, 10, 10, float('Nan'))
+        with self.assertRaises(TypeError):
             r6 = Rectangle(10, 10, float('Nan'), 20)
+        with self.assertRaises(TypeError):
             r5 = Rectangle(10, 10, 10, float('inf'))
+        with self.assertRaises(TypeError):
             r6 = Rectangle(10, 10, float('inf'), 20)
-
+        with self.assertRaises(TypeError):
             r7 = Rectangle(1, 1, 1, 1, 1, 1, 1)
 
-        with self.assertRaises(ValueError):
             # width and height
+        with self.assertRaises(ValueError):
             r1 = Rectangle(10, -10)
+        with self.assertRaises(ValueError):
             r2 = Rectangle(-10, 10)
+        with self.assertRaises(ValueError):
             r3 = Rectangle(10, 0)
+        with self.assertRaises(ValueError):
             r4 = Rectangle(0, 10)
 
             # x and y
+        with self.assertRaises(ValueError):
             r1 = Rectangle(10, 10, 10, -10)
+        with self.assertRaises(ValueError):
             r2 = Rectangle(10, 10, -10, 10)
 
     def test_task4(self):
@@ -267,17 +296,25 @@ class RectangleTest(unittest.TestCase):
     def test_checker(self):
         """Tests for the checker!"""
         with self.assertRaises(TypeError):
-            Rectangle("1", 2)
-            Rectangle(1, "2")
+            r50 = Rectangle("1", 2)
+        with self.assertRaises(TypeError):
+            r51 = Rectangle(1, "2")
+        with self.assertRaises(TypeError):
             Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
             Rectangle(1, 2, 3, "4")
 
         with self.assertRaises(ValueError):
             Rectangle(-1, 2)
+        with self.assertRaises(ValueError):
             Rectangle(1, -2)
+        with self.assertRaises(ValueError):
             Rectangle(0, 2)
+        with self.assertRaises(ValueError):
             Rectangle(1, 0)
+        with self.assertRaises(ValueError):
             Rectangle(1, 2, -3)
+        with self.assertRaises(ValueError):
             Rectangle(1, 2, 3, -4)
 
 if __name__ == '__main__':
