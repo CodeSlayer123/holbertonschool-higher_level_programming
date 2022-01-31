@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 from models.rectangle import Rectangle
 from models.base import Base
-
+from io import StringIO
+from unittest.mock import patch
 import unittest
 import pep8
+
+
 """Test for class rectangle"""
 
 
@@ -329,6 +332,25 @@ class RectangleTest(unittest.TestCase):
             r58 = Rectangle(1, 2, -3)
         with self.assertRaises(ValueError):
             r59 = Rectangle(1, 2, 3, -4)
+
+    def test_display(self):
+        """Display test"""
+        dRect1 = Rectangle(1, 1)
+        dRect2 = Rectangle(1, 1, 1)
+        expRect1 = '#\n'
+        expRect2 = ' #\n'
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            Rectangle.display(dRect1)
+            self.assertEqual(fake_out.getvalue(), expRect1)
+
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            Rectangle.display(dRect2)
+            self.assertEqual(fake_out.getvalue(), expRect2)
+
+        with self.assertRaises(TypeError):
+            with patch('sys.stdout', new=StringIO()) as fake_out:
+                Rectangle.display()
+
 
 if __name__ == '__main__':
     unittest.main()
