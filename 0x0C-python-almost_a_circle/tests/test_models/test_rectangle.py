@@ -300,22 +300,22 @@ class RectangleTest(unittest.TestCase):
         with self.assertRaises(TypeError):
             r51 = Rectangle(1, "2")
         with self.assertRaises(TypeError):
-            Rectangle(1, 2, "3")
+            r52 = Rectangle(1, 2, "3")
         with self.assertRaises(TypeError):
-            Rectangle(1, 2, 3, "4")
+            r53 = Rectangle(1, 2, 3, "4")
 
         with self.assertRaises(ValueError):
-            Rectangle(-1, 2)
+            r54 = Rectangle(-1, 2)
         with self.assertRaises(ValueError):
-            Rectangle(1, -2)
+            r55 = Rectangle(1, -2)
         with self.assertRaises(ValueError):
-            Rectangle(0, 2)
+            r56 = Rectangle(0, 2)
         with self.assertRaises(ValueError):
-            Rectangle(1, 0)
+            r57 = Rectangle(1, 0)
         with self.assertRaises(ValueError):
-            Rectangle(1, 2, -3)
+            r58 = Rectangle(1, 2, -3)
         with self.assertRaises(ValueError):
-            Rectangle(1, 2, 3, -4)
+            r59 = Rectangle(1, 2, 3, -4)
 
 if __name__ == '__main__':
     unittest.main()
