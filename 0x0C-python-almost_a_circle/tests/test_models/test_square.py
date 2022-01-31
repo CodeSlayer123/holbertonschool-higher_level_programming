@@ -264,5 +264,17 @@ class SquareTest(unittest.TestCase):
         self.assertTrue(len(Square.update.__doc__) >= 1)
         self.assertTrue(len(Square.to_dictionary.__doc__) >= 1)
 
+    def test_checker(self):
+        """Checker tests"""
+        with self.assertRaises(TypeError):
+            Square(1, "2")
+            Square(1, 3, "3")
+
+        with self.assertRaises(ValueError):
+            Square(-1)
+            Square(1, -2)
+            Square(1, 2, -3)
+            Square(0)
+
 if __name__ == '__main__':
     unittest.main()
