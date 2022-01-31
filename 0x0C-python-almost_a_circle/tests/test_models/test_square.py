@@ -193,6 +193,7 @@ class SquareTest(unittest.TestCase):
     def test_task16(self):
         """test 10"""
 
+        eList = []
         s14 = Square(10, 2, 8)
         s15 = Square(2)
         Square.save_to_file([s14, s15])
@@ -201,7 +202,7 @@ class SquareTest(unittest.TestCase):
 "size": 10, "x": 2, "y": 8}, \
 {"id": 4, "size": 2, "x": 0, "y": 0}]')
 
-        Square.save_to_file([])
+        Square.save_to_file(eList)
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[]')
         Square.save_to_file(None)
