@@ -1,3 +1,3 @@
 -- updates score of Bob to 10 in table
 UPDATE second_table
-SET score = 10 WHILE NAME = 'Bob';
+SET score = 10 WHERE NAME = 'Bob';
