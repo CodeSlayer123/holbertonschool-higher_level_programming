@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""" SQL injection safeguard of previous task"""
 if __name__ == "__main__":
     import MySQLdb
     import sys

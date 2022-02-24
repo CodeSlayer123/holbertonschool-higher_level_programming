@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""lists all cities of state passed as argument"""
+
 if __name__ == "__main__":
     import MySQLdb
     import sys

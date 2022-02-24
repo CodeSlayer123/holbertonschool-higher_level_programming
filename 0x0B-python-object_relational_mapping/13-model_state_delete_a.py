@@ -1,12 +1,12 @@
 #!/usr/bin/python3
+"""deletes all State objects with a name containing the letter a"""
+
 if __name__ == "__main__":
 
     from model_state import Base, State
     from sqlalchemy.ext.declarative import declarative_base
     from sqlalchemy import create_engine
-    from sqlalchemy import Column, Integer, String
     import sys
-    from sqlalchemy import MetaData
     from sqlalchemy.orm import Session, sessionmaker
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'

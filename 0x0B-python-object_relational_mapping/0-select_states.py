@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Lists all rows from the states table"""
+"""lists all states from the database"""
 
 if __name__ == "__main__":
 
