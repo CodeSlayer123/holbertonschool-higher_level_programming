@@ -13,13 +13,13 @@ Base.metadata.create_all(engine)
 
 Session=sessionmaker()
 local_session=Session(bind=engine)
+states=local_session.query(State).filter(State.name == sys.argv[4])
 
-s1 = local_session()
-s1.name = "Louisiana"
+my_count = states.count()
+if my_count == 0:
+    print("Not found")
+else:
+    for i in states:
+        print(i.id)
 
-local_session.add(s1)
-local_session.commit()
-
-states=local_session.query(State).filter(State.name == "Louisiana")
-
-print(states.id)
+local_session.close()

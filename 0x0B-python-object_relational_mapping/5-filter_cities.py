@@ -7,7 +7,7 @@ db = MySQLdb.connect(host="localhost", port=3306,
 
 mycursor = db.cursor()
 sql = """SELECT cities.name FROM cities INNER JOIN states ON\
-    cities.state_id = states.id AND states.name = '%s'.""" % sys.argv[4]
+    cities.state_id = states.id AND states.name = '%s'""" % sys.argv[4]
 mycursor.execute(sql)
 myresult = mycursor.fetchall()
 flag = 1
@@ -18,3 +18,4 @@ for i in myresult:
     else:
         print()
     flag += 1
+db.close()

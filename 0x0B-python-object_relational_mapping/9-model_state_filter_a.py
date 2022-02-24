@@ -13,7 +13,9 @@ Base.metadata.create_all(engine)
 
 Session=sessionmaker()
 local_session=Session(bind=engine)
-states=local_session.query(State).filter('a' in State.name)
+states=local_session.query(State).all()
 
 for i in states:
-    print("{}: {}".format(i.id, i.name))
+    if 'a' in i.name:
+        print("{}: {}".format(i.id, i.name))
+local_session.close()
