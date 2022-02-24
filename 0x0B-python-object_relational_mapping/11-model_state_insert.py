@@ -13,13 +13,15 @@ Base.metadata.create_all(engine)
 
 Session=sessionmaker()
 local_session=Session(bind=engine)
-states=local_session.query(State).filter(State.id==1)
 
-my_count = states.count()
+s1 = State()
+s1.name = "Louisiana"
 
-if my_count == 0:
-    print("Nothing")
-else:
-    for i in states:
-        print("{}: {}".format(i.id, i.name))
+local_session.add(s1)
+local_session.commit()
+
+states=local_session.query(State).filter(State.name == "Louisiana")
+
+print(s1.id)
+
 local_session.close()

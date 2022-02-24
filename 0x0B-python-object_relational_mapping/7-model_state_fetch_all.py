@@ -12,10 +12,11 @@ engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1], 
 Base.metadata.create_all(engine)
 
 
-Session=sessionmaker()
-local_session=Session(bind=engine)
+Session = sessionmaker()
+local_session = Session(bind=engine)
 states=local_session.query(State).all()
 
 for i in states:
     print("{}: {}".format(i.id, i.name))
 
+local_session.close()

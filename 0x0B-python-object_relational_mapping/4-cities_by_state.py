@@ -12,3 +12,4 @@ mycursor.execute(sql)
 myresult = mycursor.fetchall()
 for i in myresult:
     print(i)
+db.close()
