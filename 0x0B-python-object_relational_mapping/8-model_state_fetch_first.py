@@ -18,10 +18,8 @@ if __name__ == "__main__":
     local_session = Session(bind=engine)
     states = local_session.query(State).order_by(State.id).first()
 
-    my_count = states.count()
-
-    if not states:
-        print("Nothing")
-    else:
+    if states:
         print("{}: {}".format(states.id, states.name))
+    else:
+        print("Nothing")
     local_session.close()
