@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     Session = sessionmaker()
     local_session = Session(bind=engine)
-    states = local_session.query(State).order_by(State.id).filter(State.id == 1)
+    states = local_session.query(State).order_by(State.id).first()
 
     my_count = states.count()
 
