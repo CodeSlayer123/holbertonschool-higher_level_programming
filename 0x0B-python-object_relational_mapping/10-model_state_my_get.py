@@ -9,13 +9,14 @@ if __name__ == "__main__":
     from sqlalchemy import MetaData
     from sqlalchemy.orm import Session, sessionmaker
 
-
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(sys.argv[1], sys.argv[2],
+                                   sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-    Session=sessionmaker()
-    local_session=Session(bind=engine)
-    states=local_session.query(State).filter(State.name == sys.argv[4])
+    Session = sessionmaker()
+    local_session = Session(bind=engine)
+    states = local_session.query(State).filter(State.name == sys.argv[4])
 
     my_count = states.count()
     if my_count == 0:
