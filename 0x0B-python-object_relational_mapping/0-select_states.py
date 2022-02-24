@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""lists all states from the database"""
+"""lists all from States table"""
 
 if __name__ == "__main__":
 
@@ -10,11 +10,10 @@ if __name__ == "__main__":
                          user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
     myCursor = db.cursor()
-    mySql = "SELECT * FROM states"
-    myCursor.execute(mySql)
 
-    result = myCursor.fetchall()
-    for i in result:
+    myCursor.execute("SELECT * FROM states")
+
+    for i in myCursor.fetchall():
         print(i)
 
     db.close()
