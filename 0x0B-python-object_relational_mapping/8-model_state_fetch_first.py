@@ -20,9 +20,8 @@ if __name__ == "__main__":
 
     my_count = states.count()
 
-    if my_count == 0:
+    if not states:
         print("Nothing")
     else:
-        for i in states:
-            print("{}: {}".format(i.id, i.name))
+        print("{}: {}".format(states.id, states.name))
     local_session.close()
