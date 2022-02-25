@@ -14,6 +14,8 @@ if __name__ == "__main__":
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
     flag = 1
+    if len(myresult) == 0:
+        print()
     for i in myresult:
         print(i[0], end="")
         if flag != len(myresult):
