@@ -11,7 +11,7 @@ if __name__ == "__main__":
         q = sys.argv[1]
 
     a = 'http://0.0.0.0:5000/search_user'
-    payload = {'letter': q}
+    payload = {'q': q}
     r = requests.post(a, data=payload)
 
     try:
@@ -20,5 +20,5 @@ if __name__ == "__main__":
             print("No result")
         else:
             print("[{}] {}".format(jason['id'], jason['name']))
-    except Exception:
+    except:
         print("Not a valid JSON")
