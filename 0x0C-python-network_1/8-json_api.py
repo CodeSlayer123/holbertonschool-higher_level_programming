@@ -18,6 +18,6 @@ if __name__ == "__main__":
     else:
         try:
             jason = r.json()
-            print("[{}] {}".format(r.id, r.name))
+            print("[{}] {}".format(jason['id'], jason['name']))
         except:
             print("Not a valid JSON")
