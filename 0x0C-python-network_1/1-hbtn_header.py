@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""sends a request to the URL and displays the value of variable"""
+
 if __name__ == "__main__":
     import urllib.request
     import sys

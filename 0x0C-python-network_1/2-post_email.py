@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""sends POST request to passed URL with email as parameter"""
+
 if __name__ == "__main__":
     import urllib.request
     import sys
