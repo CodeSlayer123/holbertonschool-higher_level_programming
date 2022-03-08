@@ -13,11 +13,12 @@ if __name__ == "__main__":
     a = 'http://0.0.0.0:5000/search_user'
     payload = {'letter': q}
     r = requests.post(a, data=payload)
-    if len(r) == 0:
-        print("No result")
-    else:
-        try:
-            jason = r.json()
+
+    try:
+        jason = r.json()
+        if len(jason) == 0:
+            print("No result")
+        else:
             print("[{}] {}".format(jason['id'], jason['name']))
-        except:
-            print("Not a valid JSON")
+    except:
+        print("Not a valid JSON")
